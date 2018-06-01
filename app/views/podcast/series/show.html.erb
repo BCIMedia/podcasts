@@ -1,12 +1,27 @@
 <div class="row">
   <div class="columns small-12">
-    <div class="series-container" id="series-<%= @series.id %>">
-      <h2 class="subhead"><%= @series.name %></h2>
-      <div class="episode-cards">
-        <% @series.episodes.each do |episode| %>
-          <%= render partial: "podcast/episodes/card", locals: {episode: episode} %>
-        <% end %>
-      </div>
-    </div>
+    <p id="notice"><%= notice %></p>
+    <h2 class="subhead">Podcast Series</h2>
+    <h4><%= @series.name %></h4>
+    <p><%= @series.description %></p>
+  </div>
+  <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
+    <%= link_to edit_podcast_series_path(@series), class: "admin-button admin-new universal-flex-button flex-button-natural" do %>
+      <i class="fa fa-plus"></i> Edit
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="columns small-12">
+    <h4>Episodes</h4>
+  </div>
+  <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
+    <%= link_to new_podcast_series_episode_path(series_id: @series.id), class: "admin-button admin-new universal-flex-button flex-button-natural" do %>
+      <i class="fa fa-plus"></i> Create
+    <% end %>
+  </div>
+  <div class="columns small-12">
+    <%= render partial: "podcast/episodes/table", locals: {episodes: @series.episodes} %>
   </div>
 </div>

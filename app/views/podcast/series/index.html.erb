@@ -1,15 +1,20 @@
 <div class="row">
   <div class="columns small-12">
     <p id="notice"><%= notice %></p>
-
     <h1>Podcast Series</h1>
-
+  </div>
+  <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
+    <%= link_to new_podcast_series_path, class: "admin-button admin-new universal-flex-button flex-button-natural" do %>
+      <i class="fa fa-plus"></i> Create
+    <% end %>
+    <%= link_to podcast_series_episodes_path(series_id: "all"), class: "admin-button universal-flex-button flex-button-natural" do %>
+      All Episodes
+    <% end %>
   </div>
   <div class="columns small-12">
     <table>
       <thead>
         <tr>
-          <th></th>
           <th>Name</th>
           <th>Description</th>
           <th>Episodes</th>
@@ -19,10 +24,6 @@
       <tbody>
         <% @series.each do |s| %>
           <tr>
-            <td>
-              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_podcast_series_path(s) %>
-              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, podcast_series_path(s), method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
             <td><%= link_to s.name, podcast_series_path(s) %></td>
             <td><%= s.description.truncate(200, seperator: " ") %></td>
             <td><%= s.episodes.count %></td>
@@ -30,9 +31,5 @@
         <% end %>
       </tbody>
     </table>
-
-    <br>
-
-    <%= link_to 'New Series', new_podcast_series_path %>
   </div>
 </div>

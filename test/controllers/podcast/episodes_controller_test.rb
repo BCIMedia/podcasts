@@ -23,7 +23,7 @@ module Podcast
         post :create, episode: { name: @episode.name, description: @episode.description, image: @episode.image, file: @episode.file }
       end
 
-      assert_redirected_to episode_path(assigns(:episode))
+      assert_redirected_to series_episode_path(assigns(:episode))
     end
 
     test "should show episode" do
@@ -38,7 +38,7 @@ module Podcast
 
     test "should update episode" do
       patch :update, id: @episode, episode: { name: @episode.name, description: @episode.description, image: @episode.image, file: @episode.file }
-      assert_redirected_to episode_path(assigns(:episode))
+      assert_redirected_to series_episode_path(assigns(:episode))
     end
 
     test "should destroy episode" do

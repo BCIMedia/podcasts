@@ -2,5 +2,5 @@
 
 <%= render "form" %>
 
-<%= link_to "Show", @episode %> |
-<%= link_to "Back", podcast_episodes_path %>
+<%= link_to "Show", podcast_series_episode_path(@episode.series, @episode) %> |
+<%= link_to "Back", podcast_series_path(@episode.series) %>

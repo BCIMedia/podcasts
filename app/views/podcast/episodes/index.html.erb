@@ -1,38 +1,14 @@
 <div class="row">
   <div class="columns small-12">
     <p id="notice"><%= notice %></p>
-
-    <h1>Episodes</h1>
-
+    <h2 class="subhead">Podcast Episodes</h2>
+  </div>
+  <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
+    <%= link_to new_podcast_series_episode_path, class: "admin-button admin-new universal-flex-button flex-button-natural" do %>
+      <i class="fa fa-plus"></i> Create
+    <% end %>
   </div>
   <div class="columns small-12">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Image</th>
-          <th>Series</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @episodes.each do |episode| %>
-          <tr>
-            <td>
-              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_podcast_episode_path(episode) %>
-              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, episode, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-            <td><%= link_to episode.name, podcast_episode_path(episode) %></td>
-            <td><%= image_tag episode.image.url, width: "50" %></td>
-            <td><%= link_to episode.series.name, podcast_series_path(episode.series) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Episode', new_podcast_episode_path %>
+    <%= render partial: "podcast/episodes/table", locals: {episodes: @episodes} %>
   </div>
 </div>

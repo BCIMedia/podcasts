@@ -2,10 +2,21 @@
   <div class="columns small-12">
     <div class="episode-container" id="episode-<%= @episode.id %>">
       <h2 class="subhead"><%= link_to @episode.series.name, podcast_series_path(@episode.series) %></h2>
-      <%= render partial: "podcast/episodes/card", locals: {episode: @episode} %>
+      <div class="episode-card">
+        <h4 class="subhead"><%= @episode.name %></h4>
+        <div class="columns small-12">
+          <%= image_tag(@episode.image.url) %>
+        </div>
+        <div class="columns small-12">
+          <%= audio_tag(@episode.file.url, controls: "controls") %>
+        </div>
+        <div class="columns small-12">
+          <%= @episode.description %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<%= link_to "Edit", edit_podcast_episode_path(@episode) %> |
-<%= link_to "Back", podcast_episodes_path %>
+<%= link_to "Edit", edit_podcast_series_episode_path(@episode.series, @episode) %> |
+<%= link_to "Back", podcast_series_path(@episode.series) %>

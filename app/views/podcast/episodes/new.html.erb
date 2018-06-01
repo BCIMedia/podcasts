@@ -4,6 +4,6 @@
 
     <%= render 'form' %>
 
-    <%= link_to 'Back', podcast_episodes_path %>
+    <%= link_to 'Back', @series ? podcast_series_path(@series) : podcast_series_index_path %>
   </div>
 </div>

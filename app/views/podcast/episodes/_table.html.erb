@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Image</th>
+      <% unless @series %>
+        <th>Series</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% episodes.each do |episode| %>
+      <tr>
+        <td>
+          <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_podcast_series_episode_path(episode.series, episode) %>
+          <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, podcast_series_episode_path(episode.series, episode), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+        <td><%= link_to episode.name, podcast_series_episode_path(episode.series, episode) %></td>
+        <td><%= image_tag episode.image.url, width: "50" %></td>
+        <% unless @series %>
+          <td><%= link_to episode.series.name, podcast_series_path(episode.series) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

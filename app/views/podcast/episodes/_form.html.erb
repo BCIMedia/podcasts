@@ -1,4 +1,4 @@
-<%= form_for @episode, html: { multipart: true } do |f| %>
+<%= form_for @episode, url: podcast_series_episodes_path, html: { multipart: true } do |f| %>
   <% if @episode.errors.any? %>
     <div class="small-12 columns">
       <div id="error_explanation">
@@ -11,6 +11,10 @@
         </ul>
       </div>
     </div>
+  <% end %>
+
+  <% if @series %>
+    <%= hidden_field_tag "podcast_episode[series_id]", @series.id %>
   <% end %>
 
   <div class="columns small-12">
@@ -29,10 +33,12 @@
     <%= f.label :file %><br>
     <%= f.file_field :file %>
   </div>
-  <div class="columns small-12">
-    <%= f.label :series %><br>
-    <%= f.collection_select(:series_id, Podcast::Series.all, :id, :name) %>
-  </div>
+  <% unless @series %>
+    <div class="columns small-12">
+      <%= f.label :series %><br>
+      <%= f.collection_select(:series_id, Podcast::Series.all, :id, :name, include_blank: "- Select Series -") %>
+    </div>
+  <% end %>
   <div class="columns small-12">
     <div class="universal-flex-container universal-flex-natural admin-button-container">
       <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural" %>
