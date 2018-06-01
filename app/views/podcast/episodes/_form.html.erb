@@ -1,0 +1,41 @@
+<%= form_for @episode, html: { multipart: true } do |f| %>
+  <% if @episode.errors.any? %>
+    <div class="small-12 columns">
+      <div id="error_explanation">
+        <h2><%= pluralize(@episode.errors.count, "error") %> prohibited this episode from being saved:</h2>
+
+        <ul>
+          <% @episode.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="columns small-12">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :file %><br>
+    <%= f.file_field :file %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :series %><br>
+    <%= f.collection_select(:series_id, Podcast::Series.all, :id, :name) %>
+  </div>
+  <div class="columns small-12">
+    <div class="universal-flex-container universal-flex-natural admin-button-container">
+      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural" %>
+    </div>
+  </div>
+<% end %>

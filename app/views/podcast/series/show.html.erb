@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="columns small-12">
+    <div class="series-container" id="series-<%= @series.id %>">
+      <h2 class="subhead"><%= @series.name %></h2>
+      <div class="episode-cards">
+        <% @series.episodes.each do |episode| %>
+          <%= render partial: "podcast/episodes/card", locals: {episode: episode} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
