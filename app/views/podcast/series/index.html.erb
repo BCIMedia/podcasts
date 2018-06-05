@@ -14,6 +14,7 @@
     <table>
       <thead>
         <tr>
+          <th></th>
           <th>Name</th>
           <th>Description</th>
           <th>Episodes</th>
@@ -23,6 +24,9 @@
       <tbody>
         <% @series.each do |s| %>
           <tr>
+            <td>
+              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_podcast_series_path(s) %>
+            </td>
             <td><%= link_to s.name, podcast_series_path(s) %></td>
             <td><%= s.description.truncate(200, seperator: " ") %></td>
             <td><%= s.episodes.count %></td>

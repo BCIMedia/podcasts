@@ -1,4 +1,6 @@
-<%= form_for @episode, url: podcast_series_episodes_path, html: { multipart: true } do |f| %>
+<%= form_for @episode,
+  url: @episode.new_record? ? podcast_series_episodes_path(@episode.series) : podcast_series_episode_path(@episode.series, @episode),
+  html: { multipart: true } do |f| %>
   <% if @episode.errors.any? %>
     <div class="small-12 columns">
       <div id="error_explanation">

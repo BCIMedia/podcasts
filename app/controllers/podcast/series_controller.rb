@@ -25,7 +25,7 @@ module Podcast
       @series = Series.new(series_params)
 
       if @series.save
-        redirect_to @series, notice: 'Series was successfully created.'
+        redirect_to podcast_series_path(@series), notice: 'Series was successfully created.'
       else
         render :new
       end
@@ -34,7 +34,7 @@ module Podcast
     # PATCH/PUT /series/1
     def update
       if @series.update(series_params)
-        redirect_to @series, notice: 'Series was successfully updated.'
+        redirect_to podcast_series_path(@series), notice: 'Series was successfully updated.'
       else
         render :index
       end

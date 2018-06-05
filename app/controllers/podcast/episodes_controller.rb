@@ -39,7 +39,7 @@ module Podcast
     # PATCH/PUT /episodes/1
     def update
       if @episode.update(episode_params)
-        redirect_to @episode, notice: 'Episode was successfully updated.'
+        redirect_to podcast_series_episode_path(@episode.series, @episode), notice: 'Episode was successfully updated.'
       else
         render :edit
       end
@@ -47,8 +47,9 @@ module Podcast
 
     # DELETE /episodes/1
     def destroy
+      series = @episode.series
       @episode.destroy
-      redirect_to episodes_url, notice: 'Episode was successfully destroyed.'
+      redirect_to podcast_series_path(series), notice: 'Episode was successfully destroyed.'
     end
 
     private
