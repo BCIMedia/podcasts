@@ -1,6 +1,18 @@
+<div class="row admin-container">
+  <div class="columns small-12 admin-page-title">
 <h1>Editing Episode</h1>
+  </div>
+  <div class="columns small-12">
+    <%= render "form" %>
+  </div>
 
-<%= render "form" %>
+  <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
+    <%= link_to podcast_series_path(@episode.series), class: "admin-button admin-back universal-flex-button flex-button-natural" do %>
+      <i class="fa fa-arrow-left"></i> Back
+    <% end %>
+    <%= link_to podcast_series_episode_path(@episode.series, @episode), class: "admin-button admin-back universal-flex-button flex-button-natural" do %>
+      Show
+    <% end %>
+  </div>
 
-<%= link_to "Show", podcast_series_episode_path(@episode.series, @episode) %> |
-<%= link_to "Back", podcast_series_path(@episode.series) %>
+</div>

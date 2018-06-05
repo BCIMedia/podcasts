@@ -18,24 +18,24 @@
   <% end %>
 
   <div class="columns small-12">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="columns small-12">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="columns small-12">
-    <%= f.label :image %><br>
+    <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
   <div class="columns small-12">
-    <%= f.label :file %><br>
+    <%= f.label :file %>
     <%= f.file_field :file %>
   </div>
   <% unless @series %>
     <div class="columns small-12">
-      <%= f.label :series %><br>
+      <%= f.label :series %>
       <%= f.collection_select(:series_id, Podcast::Series.all, :id, :name, include_blank: "- Select Series -") %>
     </div>
   <% end %>
