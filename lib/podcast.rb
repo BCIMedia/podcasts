@@ -1,22 +1,19 @@
 require "podcast/engine"
 
-module Admin
-  module Podcast
-    class << self
-      attr_accessor :configuration
-    end
+module Podcast
+  class << self
+    attr_accessor :configuration
+  end
 
-    def self.configure
-      self.configuration ||= Configuration.new
-      yield(configuration)
-    end
-    class Configuration
-      # attr_accessor :same_setting1, :some_setting2
+  def self.configure
+    self.configuration ||= Configuration.new
+    yield(configuration)
+  end
+  class Configuration
+    attr_accessor :s3_directory
 
-      def initialize
-        # @some_setting1 = ""
-        # @some_setting2 = ""
-      end
+    def initialize
+      @s3_directory = "podcast_storage"
     end
   end
 end
