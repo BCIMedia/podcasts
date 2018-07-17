@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["msmith@bcimedia.com"]
   s.summary     = %q{Storing and delivering podcasts}
   s.description = %q{Gem for uploading podcast and related data and delivering that content to views within an existing app.}
-  s.homepage    = "https://github.com/BallantineDigitalMedia/podcasts"
+  s.homepage    = "https://github.com/BCIMedia/podcasts"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
