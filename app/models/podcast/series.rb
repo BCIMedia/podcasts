@@ -4,5 +4,7 @@ module Podcast
 
     has_many :episodes, -> { order(id: :desc) }
 
+    enum itunes_type: { episodic: 0, serial: 1 }
+
   end
 end
