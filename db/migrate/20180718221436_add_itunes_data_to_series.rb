@@ -8,6 +8,5 @@ class AddItunesDataToSeries < ActiveRecord::Migration
     add_column :podcast_series, :itunes_type, :integer, default: 0, after: :page_link
     add_column :podcast_series, :complete, :boolean, default: false, after: :itunes_type
     add_column :podcast_series, :explicit, :boolean, default: false, after: :complete
-    add_attachment :podcast_series, :image, after: :explicit
   end
 end
