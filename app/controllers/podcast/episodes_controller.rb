@@ -64,7 +64,7 @@ module Podcast
 
       # Only allow a trusted parameter "white list" through.
       def episode_params
-        params.require(:podcast_episode).permit(:name, :description, :image, :file, :series_id)
+        params.require(:podcast_episode).permit(:name, :description, :image, :file, :series_id, :subtitle, :summary, :author, :explicit, :skip_itunes, :season, :publish_date)
       end
   end
 end
