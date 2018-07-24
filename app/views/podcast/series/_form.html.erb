@@ -41,6 +41,15 @@
     <%= f.label :page_link %>
     <%= f.text_field :page_link, placeholder: "Link to where this content can be found on our site" %>
   </div>
+  <div class="columns small-6">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="columns small-6">
+    <% if @series.image.present? %>
+      <%= image_tag @series.image.url %>
+    <% end %>
+  </div>
   <div class="columns small-4">
     <%= f.label :itunes_type %>
     <%= f.select :itunes_type, Podcast::Series.itunes_types.map { |k, v| [k.humanize, k] }, prompt: true %>
