@@ -4,13 +4,13 @@ module Podcast
 
     has_attached_file :image
     if Rails.env == "development"
-      has_attached_file :file
+      has_attached_file :file, validate_media_type: false
     else
-      has_attached_file :file, path: "/#{Podcast.configuration.s3_directory}/:class/:id/:attachment/:id_:filename"
+      has_attached_file :file, path: "/#{Podcast.configuration.s3_directory}/:class/:id/:attachment/:id_:filename", validate_media_type: false
     end
 
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-    validates_attachment_content_type :file, content_type: /\Aaudio\/.*\z/
+    # validates_attachment_content_type :file, content_type: /\Aaudio\/.*\z/
 
     belongs_to :series
 
