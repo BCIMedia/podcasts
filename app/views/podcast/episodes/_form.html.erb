@@ -62,6 +62,8 @@
   <div class="columns small-6">
     <% if @episode.image.present? %>
       <%= image_tag @episode.image.url %>
+    <% else %>
+      <%= image_tag(@episode.series.image.url) %>
     <% end %>
   </div>
   <div class="columns small-6">
