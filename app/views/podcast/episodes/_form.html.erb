@@ -24,16 +24,16 @@
     <%= f.text_field :name %>
   </div>
   <div class="columns small-12">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="columns small-12">
     <%= f.label :subtitle %>
     <%= f.text_field :subtitle, placeholder: "Single sentence description" %>
   </div>
   <div class="columns small-12">
     <%= f.label :summary %>
-    <%= f.text_area :summary %>
+    <%= f.text_area :summary, placeholder: "Summarise your episode, try to keep it short" %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Fully describe your episode, include as much detail as possible" %>
   </div>
   <div class="columns small-12">
     <%= f.label :author %>
