@@ -1,18 +1,17 @@
-<div class="row admin-container">
-  <div class="columns small-12 admin-page-title">
-    <h1>Editing Series</h1>
-  </div>
+  <div class="row admin-container">
+    <div class="columns small-12 admin-page-title form-title">
+      <h1>Editing Series</h1>
+    </div>
 
-  <div class="columns small-12">
-    <%= render "form" %>
-  </div>
+    <div class="columns small-12">
+      <%= render "form" %>
+    </div>
 
-  <div class="columns small-12">
-    <div class="universal-flex-container universal-flex-natural admin-button-container">
-      <%= link_to podcast_series_index_path, class: "admin-button admin-back universal-flex-button flex-button-natural" do %>
-        <i class="fa fa-arrow-left"></i> Back
-      <% end %>
+    <div class="columns small-12">
+      <div class="universal-flex-container universal-flex-natural admin-button-container">
+        <%= link_to podcast_series_index_path, class: "admin-button admin-back universal-flex-button flex-button-natural" do %>
+          <i class="fa fa-arrow-left"></i> Back
+        <% end %>
+      </div>
     </div>
   </div>
-
-</div>
