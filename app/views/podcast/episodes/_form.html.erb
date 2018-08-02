@@ -78,7 +78,6 @@
         <%= f.collection_select(:series_id, Podcast::Series.all, :id, :name, include_blank: "- Select Series -") %>
       </div>
     <% end %>
-  </div>
   <% unless @series %>
     <div class="columns small-12">
       <%= f.label :series %>
@@ -87,6 +86,7 @@
   <% end %>
   <div class="columns small-12">
     <div class="universal-flex-container universal-flex-natural admin-button-container">
-      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural justify-end" %>
+      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural form-submit justify-end" %>
     </div>
+  </div>
 <% end %>
