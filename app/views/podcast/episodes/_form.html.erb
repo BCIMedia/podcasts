@@ -58,11 +58,13 @@
       <%= f.label :image %>
       <%= f.file_field :image %>
     </div>
-    <% if @episode.image.present? %>
       <div class="columns small-6">
-        <%= image_tag @episode.image.url %>
+        <% if @episode.image.present? %>
+          <%= image_tag @episode.image.url %>
+        <% else %>
+          <%= image_tag(@episode.series.image.url) %>
+        <% end %>
       </div>
-    <% end %>
     <div class="columns small-6">
       <%= f.label :file %>
       <%= f.file_field :file %>
