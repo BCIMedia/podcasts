@@ -1,6 +1,6 @@
 <%= form_for @episode,
   url: @episode.new_record? ? podcast_series_episodes_path(@episode.series) : podcast_series_episode_path(@episode.series, @episode),
-  html: { multipart: true, class: "row"} do |f| %>
+  html: { multipart: true, class: "elevated-form row"} do |f| %>
   <% if @episode.errors.any? %>
     <div class="small-12 columns">
       <div id="error_explanation">
@@ -18,14 +18,9 @@
   <% if @series %>
     <%= hidden_field_tag "podcast_episode[series_id]", @series.id %>
   <% end %>
-
   <div class="columns small-12">
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-  <div class="columns small-12">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
   </div>
   <div class="columns small-12">
     <%= f.label :subtitle %>
@@ -33,7 +28,11 @@
   </div>
   <div class="columns small-12">
     <%= f.label :summary %>
-    <%= f.text_area :summary %>
+    <%= f.text_area :summary, placeholder: "Summarise your episode, try to keep it short" %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Fully describe your episode, include as much detail as possible" %>
   </div>
   <div class="columns small-12">
     <%= f.label :author %>
@@ -47,13 +46,13 @@
     <%= f.label :season %>
     <%= f.number_field :season %>
   </div>
-  <div class="columns small-4">
-    <%= f.label :skip_itunes %>
+  <div class="columns small-2 checkbox-style">
     <%= f.check_box :skip_itunes %>
+    <%= f.label :skip_itunes, "<i class='fa fa-square-o'></i>&nbsp;Skip&nbsp;Itunes".html_safe %>
   </div>
-  <div class="columns small-4">
-    <%= f.label :explicit %>
+  <div class="columns small-2 checkbox-style">
     <%= f.check_box :explicit %>
+    <%= f.label :explicit, "<i class='fa fa-square-o'></i>&nbsp;Explicit".html_safe %>
   </div>
   <div class="columns small-6">
     <%= f.label :image %>
@@ -70,11 +69,17 @@
     <%= f.label :file %>
     <%= f.file_field :file %>
   </div>
-  <div class="columns small-6">
-    <% if @episode.file.present? %>
+  <% if @episode.file.present? %>
+    <div class="columns small-6">
       <%= audio_tag(@episode.file.url, controls: "controls") %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  <% unless @series %>
+    <div class="columns small-12">
+      <%= f.label :series %>
+      <%= f.collection_select(:series_id, Podcast::Series.all, :id, :name, include_blank: "- Select Series -") %>
+    </div>
+  <% end %>
   <% unless @series %>
     <div class="columns small-12">
       <%= f.label :series %>
@@ -83,7 +88,7 @@
   <% end %>
   <div class="columns small-12">
     <div class="universal-flex-container universal-flex-natural admin-button-container">
-      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural" %>
+      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural form-submit justify-end" %>
     </div>
   </div>
 <% end %>

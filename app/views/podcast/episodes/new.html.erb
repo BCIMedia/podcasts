@@ -1,13 +1,15 @@
 <div class="row admin-container">
   <div class="columns small-12 admin-page-title">
     <h1>New Episode</h1>
+  </div>
 
+  <div class="columns small-12">
     <%= render 'form' %>
+  </div>
 
-    <div class="columns small-12 universal-flex-container">
-      <%= link_to @series ? podcast_series_path(@series) : podcast_series_index_path, class: "admin-back admin-button universal-flex-button flex-button-natural" do %>
-        <i class="fa fa-arrow-left"></i>Back
-      <% end %>
-    </div>
+  <div class="columns small-12 universal-flex-container">
+    <%= link_to @series ? podcast_series_path(@series) : podcast_series_index_path, class: "admin-back admin-button universal-flex-button flex-button-natural" do %>
+      <i class="fa fa-arrow-left"></i>Back
+    <% end %>
   </div>
 </div>

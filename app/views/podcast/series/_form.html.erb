@@ -1,9 +1,8 @@
-<%= form_for @series, html: {class: "row"} do |f| %>
+<%= form_for @series, html: {class: "elevated-form row"} do |f| %>
   <% if @series.errors.any? %>
     <div class="small-12 columns">
       <div id="error_explanation">
         <h2><%= pluralize(@series.errors.count, "error") %> prohibited this series from being saved:</h2>
-
         <ul>
           <% @series.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -12,7 +11,6 @@
       </div>
     </div>
   <% end %>
-
   <div class="columns small-12">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -23,17 +21,17 @@
   </div>
   <div class="columns small-12">
     <%= f.label :summary %>
-    <%= f.text_area :summary %>
+    <%= f.text_area :summary, placeholder: "Summarise your series, try to keep it short"  %>
   </div>
   <div class="columns small-12">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: "Fully describe your series, include as much detail as possible" %>
   </div>
-  <div class="columns small-12">
+  <div class="columns small-12 medium-6">
     <%= f.label :owner %>
     <%= f.text_field :owner %>
   </div>
-  <div class="columns small-12">
+  <div class="columns small-12 medium-6">
     <%= f.label :category %>
     <%= f.text_field :category, placeholder: "If multiple seperate with commas" %>
   </div>
@@ -54,17 +52,17 @@
     <%= f.label :itunes_type %>
     <%= f.select :itunes_type, Podcast::Series.itunes_types.map { |k, v| [k.humanize, k] }, prompt: true %>
   </div>
-  <div class="columns small-4">
-    <%= f.label :explicit %>
+  <div class="columns small-4 large-2 checkbox-style">
     <%= f.check_box :explicit %>
+    <%= f.label :explicit, "<i class='fa fa-square-o'></i>&nbsp;Explicit".html_safe %>
   </div>
-  <div class="columns small-4">
-    <%= f.label :complete %>
+  <div class="columns small-4 large-2 checkbox-style">
     <%= f.check_box :complete %>
+    <%= f.label :complete, "<i class='fa fa-square-o'></i>&nbsp;Complete".html_safe %>
   </div>
-  <div class="columns small-12">
+  <div class="columns small-12 large-4 form-submit">
     <div class="universal-flex-container universal-flex-natural admin-button-container">
-      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural" %>
+      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural form-submit justify-end" %>
     </div>
   </div>
 <% end %>
