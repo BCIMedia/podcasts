@@ -11,58 +11,58 @@
       </div>
     </div>
   <% end %>
-    <div class="columns small-12">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+  <div class="columns small-12">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle, placeholder: "Single sentence description" %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :summary %>
+    <%= f.text_area :summary, placeholder: "Summarise your series, try to keep it short"  %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Fully describe your series, include as much detail as possible" %>
+  </div>
+  <div class="columns small-12 medium-6">
+    <%= f.label :owner %>
+    <%= f.text_field :owner %>
+  </div>
+  <div class="columns small-12 medium-6">
+    <%= f.label :category %>
+    <%= f.text_field :category, placeholder: "If multiple seperate with commas" %>
+  </div>
+  <div class="columns small-12">
+    <%= f.label :page_link %>
+    <%= f.text_field :page_link, placeholder: "Link to where this content can be found on our site" %>
+  </div>
+  <div class="columns small-6">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="columns small-6">
+    <% if @series.image.present? %>
+      <%= image_tag @series.image.url %>
+    <% end %>
+  </div>
+  <div class="columns small-4">
+    <%= f.label :itunes_type %>
+    <%= f.select :itunes_type, Podcast::Series.itunes_types.map { |k, v| [k.humanize, k] }, prompt: true %>
+  </div>
+  <div class="columns small-4 large-2 checkbox-style">
+    <%= f.check_box :explicit %>
+    <%= f.label :explicit, "<i class='fa fa-square-o'></i>&nbsp;Explicit".html_safe %>
+  </div>
+  <div class="columns small-4 large-2 checkbox-style">
+    <%= f.check_box :complete %>
+    <%= f.label :complete, "<i class='fa fa-square-o'></i>&nbsp;Complete".html_safe %>
+  </div>
+  <div class="columns small-12 large-4 form-submit">
+    <div class="universal-flex-container universal-flex-natural admin-button-container">
+      <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural form-submit justify-end" %>
     </div>
-    <div class="columns small-12">
-      <%= f.label :subtitle %>
-      <%= f.text_field :subtitle, placeholder: "Single sentence description" %>
-    </div>
-    <div class="columns small-12">
-      <%= f.label :summary %>
-      <%= f.text_area :summary, placeholder: "Summarise your series, try to keep it short"  %>
-    </div>
-    <div class="columns small-12">
-      <%= f.label :description %>
-      <%= f.text_area :description, placeholder: "Fully describe your series, include as much detail as possible" %>
-    </div>
-    <div class="columns small-12 medium-6">
-      <%= f.label :owner %>
-      <%= f.text_field :owner %>
-    </div>
-    <div class="columns small-12 medium-6">
-      <%= f.label :category %>
-      <%= f.text_field :category, placeholder: "If multiple seperate with commas" %>
-    </div>
-    <div class="columns small-12">
-      <%= f.label :page_link %>
-      <%= f.text_field :page_link, placeholder: "Link to where this content can be found on our site" %>
-    </div>
-    <div class="columns small-6">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
-    <div class="columns small-6">
-      <% if @series.image.present? %>
-        <%= image_tag @series.image.url %>
-      <% end %>
-    </div>
-    <div class="columns small-4">
-      <%= f.label :itunes_type %>
-      <%= f.select :itunes_type, Podcast::Series.itunes_types.map { |k, v| [k.humanize, k] }, prompt: true %>
-    </div>
-    <div class="columns small-4 large-2 checkbox-style">
-      <%= f.check_box :explicit %>
-      <%= f.label :explicit, "<i class='fa fa-square-o'></i>&nbsp;Explicit".html_safe %>
-    </div>
-    <div class="columns small-4 large-2 checkbox-style">
-      <%= f.check_box :complete %>
-      <%= f.label :complete, "<i class='fa fa-square-o'></i>&nbsp;Complete".html_safe %>
-    </div>
-    <div class="columns small-12 large-4 form-submit">
-      <div class="universal-flex-container universal-flex-natural admin-button-container">
-        <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural form-submit justify-end" %>
-      </div>
-    </div>
+  </div>
 <% end %>
