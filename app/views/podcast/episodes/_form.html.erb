@@ -48,11 +48,11 @@
   </div>
   <div class="columns small-2 checkbox-style">
     <%= f.check_box :skip_itunes %>
-    <%= f.label :skip_itunes, "<i class='fa fa-square-o'></i>&nbsp;Skip&nbsp;Itunes".html_safe %>
+    <%= f.label :skip_itunes, "<i class='fal fa-#{@episode.skip_itunes ? "check-square" : "square"}'></i>&nbsp;Itunes".html_safe %>
   </div>
   <div class="columns small-2 checkbox-style">
     <%= f.check_box :explicit %>
-    <%= f.label :explicit, "<i class='fa fa-square-o'></i>&nbsp;Explicit".html_safe %>
+    <%= f.label :explicit, "<i class='fal fa-#{@episode.explicit ? "check-square" : "square"}'></i>&nbsp;Explicit".html_safe %>
   </div>
   <div class="columns small-6">
     <%= f.label :image %>
