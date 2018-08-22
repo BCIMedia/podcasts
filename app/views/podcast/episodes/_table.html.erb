@@ -14,8 +14,8 @@
     <% episodes.each do |episode| %>
       <tr>
         <td>
-          <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_podcast_series_episode_path(episode.series, episode) %>
-          <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, podcast_series_episode_path(episode.series, episode), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe, edit_podcast_series_episode_path(episode.series, episode) %>
+          <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, podcast_series_episode_path(episode.series, episode), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
         <td><%= link_to episode.name, podcast_series_episode_path(episode.series, episode) %></td>
         <% if episode.image.present? %>
