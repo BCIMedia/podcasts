@@ -47,8 +47,8 @@
     <%= f.number_field :season %>
   </div>
   <div class="columns small-2 checkbox-style">
-    <%= f.check_box :skip_itunes %>
-    <%= f.label :skip_itunes, "<i class='fal fa-#{@episode.skip_itunes ? "check-square" : "square"}'></i>&nbsp;Itunes".html_safe %>
+    <%= f.check_box :itunes %>
+    <%= f.label :itunes, "<i class='fal fa-#{@episode.itunes ? "check-square" : "square"}'></i>&nbsp;Itunes".html_safe %>
   </div>
   <div class="columns small-2 checkbox-style">
     <%= f.check_box :explicit %>
