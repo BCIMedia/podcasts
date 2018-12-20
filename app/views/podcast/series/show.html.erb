@@ -5,7 +5,7 @@
     <div><%= @series.description %></div>
   </div>
   <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
-    <%= link_to edit_podcast_series_path(@series), class: "admin-button admin-new universal-flex-button flex-button-natural" do %>
+    <%= link_to edit_podcast_series_path(@series), class: "admin-button btn-green universal-flex-button flex-button-natural" do %>
       <i class="fas fa-plus"></i> Edit
     <% end %>
   </div>
@@ -16,7 +16,7 @@
     <h4>Episodes</h4>
   </div>
   <div class="columns small-12 universal-flex-container universal-flex-natural admin-button-container">
-    <%= link_to new_podcast_series_episode_path(series_id: @series.id), class: "admin-button admin-new universal-flex-button flex-button-natural" do %>
+    <%= link_to new_podcast_series_episode_path(series_id: @series.id), class: "admin-button btn-green universal-flex-button flex-button-natural" do %>
       <i class="fas fa-plus"></i> Create
     <% end %>
   </div>
