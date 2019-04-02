@@ -1,3 +1,3 @@
 module Podcast
-  VERSION = '0.2.06'
+  VERSION = '0.2.07'
 end
