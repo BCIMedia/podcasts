@@ -2,7 +2,7 @@
   <% if @series.errors.any? %>
     <div class="small-12 columns">
       <div id="error_explanation">
-        <h2><%= pluralize(@series.errors.count, "error") %> prohibited this series from being saved:</h2>
+        <h2><%= pluralize(@series.errors.count, 'error') %> prohibited this series from being saved:</h2>
         <ul>
           <% @series.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -17,15 +17,15 @@
   </div>
   <div class="columns small-12">
     <%= f.label :subtitle %>
-    <%= f.text_field :subtitle, placeholder: "Single sentence description" %>
+    <%= f.text_field :subtitle, placeholder: 'Single sentence description' %>
   </div>
   <div class="columns small-12">
     <%= f.label :summary %>
-    <%= f.text_area :summary, placeholder: "Summarise your series, try to keep it short"  %>
+    <%= f.text_area :summary, placeholder: 'Summarise your series, try to keep it short'  %>
   </div>
   <div class="columns small-12">
     <%= f.label :description %>
-    <%= f.text_area :description, placeholder: "Fully describe your series, include as much detail as possible" %>
+    <%= f.text_area :description, placeholder: 'Fully describe your series, include as much detail as possible' %>
   </div>
   <div class="columns small-12 medium-6">
     <%= f.label :owner %>
@@ -33,11 +33,19 @@
   </div>
   <div class="columns small-12 medium-6">
     <%= f.label :category %>
-    <%= f.text_field :category, placeholder: "If multiple seperate with commas" %>
+    <%= f.text_field :category, placeholder: 'If multiple seperate with commas' %>
   </div>
   <div class="columns small-12">
     <%= f.label :page_link %>
-    <%= f.text_field :page_link, placeholder: "Link to where this content can be found on our site" %>
+    <%= f.text_field :page_link, placeholder: 'Link to where this series can be found on our site' %>
+  </div>
+  <div class="columns small-12 medium-6">
+    <%= f.label :itunes_link %>
+    <%= f.text_field :itunes_link, placeholder: 'Link to where this series can be found on iTunes' %>
+  </div>
+  <div class="columns small-12 medium-6">
+    <%= f.label :spotify_link %>
+    <%= f.text_field :spotify_link, placeholder: 'Link to where this series can be found on Spotify' %>
   </div>
   <div class="columns small-6">
     <%= f.label :image %>
@@ -54,15 +62,15 @@
   </div>
   <div class="columns small-4 large-2 checkbox-style">
     <%= f.check_box :explicit %>
-    <%= f.label :explicit, "<i class='fal fa-#{@series.explicit ? "check-square" : "square"}'></i>&nbsp;Explicit".html_safe %>
+    <%= f.label :explicit, "<i class='fal fa-#{@series.explicit ? 'check-square' : 'square'}'></i>&nbsp;Explicit".html_safe %>
   </div>
   <div class="columns small-4 large-2 checkbox-style">
     <%= f.check_box :complete %>
-    <%= f.label :complete, "<i class='fal fa-#{@series.complete ? "check-square" : "square"}'></i>&nbsp;Complete".html_safe %>
+    <%= f.label :complete, "<i class='fal fa-#{@series.complete ? 'check-square' : 'square'}'></i>&nbsp;Complete".html_safe %>
   </div>
   <div class="columns small-12 large-4 form-submit">
     <div class="universal-flex-container universal-flex-natural universal-flex-end">
-      <%= f.submit "Submit", class: "btn-green universal-flex-button flex-button-natural form-submit" %>
+      <%= f.submit 'Submit', class: "btn-green universal-flex-button flex-button-natural form-submit" %>
     </div>
   </div>
 <% end %>
