@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    podcast (0.2.07)
+    podcast (0.2.09)
       mysql2 (~> 0.4.10)
       rails (~> 4.2.11)
 
