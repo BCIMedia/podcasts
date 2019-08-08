@@ -3,6 +3,7 @@
     <tr>
       <th></th>
       <th>Name</th>
+      <th>Shortcode</th>
       <th>Image</th>
       <% unless @series %>
         <th>Series</th>
@@ -18,6 +19,7 @@
           <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, podcast_series_episode_path(episode.series, episode), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
         <td><%= link_to episode.name, podcast_series_episode_path(episode.series, episode) %></td>
+        <td>[podcast:<%= episode.id %>]</td>
         <% if episode.image.present? %>
           <td><%= image_tag episode.image.url, width: "50" %></td>
         <% else %>
