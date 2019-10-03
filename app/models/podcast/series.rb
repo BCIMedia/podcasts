@@ -9,5 +9,14 @@ module Podcast
 
     enum itunes_type: { episodic: 0, serial: 1 }
 
+    def series_url
+      case name
+      when "Living Sports"
+        Rails.application.routes.url_helpers.living_sports_path
+      when "Durango Diaries"
+        Rails.application.routes.url_helpers.durango_diaries_path
+      end
+    end
+
   end
 end
