@@ -14,5 +14,9 @@ module Podcast
 
     belongs_to :series
 
+    def to_param
+      "#{id}-#{name.urlify if name}"
+    end
+
   end
 end
