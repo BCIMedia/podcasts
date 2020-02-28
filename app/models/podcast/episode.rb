@@ -10,7 +10,7 @@ module Podcast
     end
 
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-    # validates_attachment_content_type :file, content_type: /\Aaudio\/.*\z/
+    validates_attachment_content_type :file, content_type: ['audio/mpeg']
 
     belongs_to :series
 
